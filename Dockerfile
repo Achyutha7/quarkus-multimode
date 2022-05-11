@@ -6,10 +6,10 @@ ARG APP_VERSION=undefined
 ENV JAR_NAME="$APP_NAME-$APP_VERSION-runner.jar"
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
 #COPY --chown=1001 target/$JAR_NAME /deployments/
-COPY --chown=185 quickstart-rest/target/quarkus-app/lib /deployments/lib/
-COPY --chown=185 quickstart-rest/target/quarkus-app/*.jar /deployments/
-COPY --chown=185 quickstart-rest/target/quarkus-app/app /deployments/app/
-COPY --chown=185 quickstart-rest/target/quarkus-app/quarkus /deployments/quarkus/
+COPY --chown=185 quarkus-multimodule/quickstart-rest/target/quarkus-app/lib /deployments/lib/
+COPY --chown=185 quarkus-multimodule/quickstart-rest/target/quarkus-app/*.jar /deployments/
+COPY --chown=185 quarkus-multimodule/quickstart-rest/target/quarkus-app/app /deployments/app/
+COPY --chown=185 quarkus-multimodule/quickstart-rest/target/quarkus-app/quarkus /deployments/quarkus/
 
 EXPOSE 8080
 USER 1001
